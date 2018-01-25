@@ -156,7 +156,7 @@ def valuesOfGlossarytable_(glossarytable_, word):
     return values_
 
 
-class WordSimilarity:
+class How_Similarity:
 
     def __init__(self):
         self.sememetable_ = dict()  # 义原表
@@ -220,9 +220,10 @@ class WordSimilarity:
                 print('function loadGlossary has errors!!')
                 print(e)
                 return False
-        self.how_vocab = set()
+        self.vocab = set()
         for k in self.glossarytable_.keys():
-            self.how_vocab.add(k.split('	')[1])
+            self.vocab.add(k.split('	')[1])
+        # print(self.vocab)
         return True
 
     def getSememeByID(self, id_):
@@ -262,8 +263,8 @@ class WordSimilarity:
         sim3 = self.calcSememeSimRelation(w1, w2)
         sim4 = self.calcSememeSimSymbol(w1, w2)
 
-        sim = self.BETA[0] * sim1 + self.BETA[1] * sim1 * sim2 + self.BETA[2] * sim1 * sim2 * sim3 + self.BETA[
-            3] * sim1 * sim2 * sim3 * sim4
+        sim = self.BETA[0] * sim1 + self.BETA[1] * sim1 * sim2 + self.BETA[2] * sim1 * sim2 * sim3 + (
+                self.BETA[3] * sim1 * sim2 * sim3 * sim4)
 
         return sim
 
@@ -284,7 +285,7 @@ class WordSimilarity:
         else:
             return -1.0
 
-    def weight(self,i):
+    def weight(self, i):
         left = 1 - i / 13
         PI = 3.1415926536
         right = 1 + math.sin(i * PI / 45)
@@ -301,7 +302,7 @@ class WordSimilarity:
             return -1.0
 
         fatherpath = []
-        id1,        id2  = s1.id,     s2.id
+        id1, id2 = s1.id, s2.id
         father1, father2 = s1.father, s2.father
 
         while (id1 != father1):  # 追溯 s1的上层词。
