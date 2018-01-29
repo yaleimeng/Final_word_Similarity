@@ -29,8 +29,8 @@ human = [0.98, 0.96, 0.96, 0.94, 0.925, 0.9025, 0.875, 0.855, 0.7775, 0.77, 0.76
 
 if __name__ == '__main__':
 
-    print('词林词汇量', len(HybridSim.B ),'\t知网词汇量', len(HybridSim.A))
-    print('两者总词汇量',len(HybridSim.A | HybridSim.B),'\t重叠词汇量', len(HybridSim.Common))
+    print('词林词汇量', len(HybridSim.ci_lin.vocab ),'\t知网词汇量', len(HybridSim.how_net.vocab))
+    print('两者总词汇量',len(HybridSim.ci_lin.vocab | HybridSim.how_net.vocab),'\t重叠词汇量', len(HybridSim.Common))
 
     sim_list = []
     for w1, w2 in zip(left, right):
