@@ -5,8 +5,8 @@
 @desc: 混合采用词林和知网的相似度计算方法。得到更加符合人们感觉的相似度数值。
 @DateTime: Created on 2018/1/25, at 上午 08:59 by PyCharm '''
 
-from howNet import How_Similarity
-from ciLin import CilinSimilarity
+from hownet.howNet import How_Similarity
+from cilin.ciLin import CilinSimilarity
 
 
 class HybridSim():
