@@ -26,9 +26,9 @@ class HybridSim():
 
         if w1 in cls.Common and w2 in cls.Common:  # 两个词都被词林和知网共同收录。
             print('两个词都被词林和知网共同收录。', end='\t')
-            print(w1, w2, '2016词林改进版相似度：', lin, end='\t')
+            print(w1, w2, '词林改进版相似度：', lin, end='\t')
             print('知网相似度结果为：', how, end='\t')
-            return lin * 0.63 + how * 0.37
+            return lin * 0.7 + how * 0.3
 
         if w1 in cls.A and w2 in cls.A:  # 两个词都只被知网收录。
             return how
@@ -72,7 +72,7 @@ class HybridSim():
             return 0.6 * how + 0.4 * max(all_sims)
 
         if w1 in cls.B and w2 in cls.Common:
-            print(w1, w2, '策略五（左词林）：2016年词林改进版相似度：', lin)
+            print(w1, w2, '策略五（左词林）：词林改进版相似度：', lin)
             same_words = cls.ci_lin.code_word[cls.ci_lin.word_code[w1][0]]
             if not same_words:
                 return lin
@@ -81,7 +81,7 @@ class HybridSim():
             return 0.6 * lin + 0.4 * max(all_sims)
 
         if w2 in cls.B and w1 in cls.Common:
-            print(w1, w2, '策略五（右词林）：2016年词林改进版相似度：', lin)
+            print(w1, w2, '策略五（右词林）：词林改进版相似度：', lin)
             same_words = cls.ci_lin.code_word[cls.ci_lin.word_code[w2][0]]
             if not same_words:
                 return lin
