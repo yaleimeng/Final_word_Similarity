@@ -134,7 +134,7 @@ class How_Similarity:
     def __init__(self):
         self.sememetable_ = dict()  # 义原表
         self.sememeindex_zn_ = dict()  # 义原索引(中文)
-        self.glossarytable_ = dict()  # 词汇表。读取之后，得到了66039条。
+        self.glossarytable_ = dict()  # 词汇表。
         self.glossaryfile = './hownet/glossary.txt'
         self.sememefile = './hownet/whole.dat'
         self.vocab = set()
