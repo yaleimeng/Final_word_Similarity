@@ -7,7 +7,7 @@
 '''
 
 from Hybrid_Sim import HybridSim
-import pandas as pd
+from pearson import *
 
 # 30个  评测词对中的左侧词
 left = ['轿车', '宝石', '旅游', '男孩子', '海岸', '庇护所', '魔术师', '中午', '火炉', '食物', '鸟', '鸟', '工具', '兄弟', '起重机', '小伙子',
@@ -40,5 +40,4 @@ if __name__ == '__main__':
     #print(sim_list)
 
 
-    s1, s2 = pd.Series(sim_list), pd.Series(human)
-    print('\n本方法皮尔逊系数为：',s1.corr(s2))  # 打印皮尔逊相关系数
+    print('\n本方法皮尔逊系数为：',  cal_pearson(sim_list,human))  # 打印皮尔逊相关系数
