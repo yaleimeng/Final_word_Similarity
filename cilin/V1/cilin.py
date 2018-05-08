@@ -198,4 +198,4 @@ class CilinSimilarity(object):
     def epow(self, x):
         """        e^x        """
         return pow(math.e, x)
-		# sim2016 end ====================================
+    # sim2016 end ====================================
