@@ -21,14 +21,14 @@ class HybridSim():
 
     @classmethod
     def get_Final_sim(cls, w1, w2):
-        lin = cls.ci_lin.sim2016(w1, w2) if w1 in cls.ci_lin.vocab and w2 in cls.ci_lin.vocab else 0
+        lin = cls.ci_lin.sim2018(w1, w2) if w1 in cls.ci_lin.vocab and w2 in cls.ci_lin.vocab else 0
         how = cls.how_net.calc(w1, w2) if w1 in cls.how_net.vocab and w2 in cls.how_net.vocab else 0
 
         if w1 in cls.Common and w2 in cls.Common:  # 两个词都被词林和知网共同收录。
             print('两个词都被词林和知网共同收录。', end='\t')
             print(w1, w2, '词林改进版相似度：', lin, end='\t')
             print('知网相似度结果为：', how, end='\t')
-            return lin * 1 + how * 0  # 这里可以调节两者的权重，以获取更优结果！！
+            return lin * 1 + how * 0  # 可以调节两者的权重，以获取更优结果！！
 
         if w1 in cls.A and w2 in cls.A:  # 两个词都只被知网收录。
             return how
