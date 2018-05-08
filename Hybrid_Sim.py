@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 '''
 @author: yaleimeng@sina.com
-@license: (C) Copyright 2017
+@license: (C) Copyright 2018
 @desc: 混合采用词林和知网的相似度计算方法。得到更加符合人们感觉的相似度数值。
 @DateTime: Created on 2018/1/25, at 上午 08:59 by PyCharm '''
 
 from hownet.howNet import How_Similarity
-from cilin.ciLin import CilinSimilarity
+from cilin.V3.new_CiLin import CilinSimilarity
 
 
 class HybridSim():
@@ -28,7 +28,7 @@ class HybridSim():
             print('两个词都被词林和知网共同收录。', end='\t')
             print(w1, w2, '词林改进版相似度：', lin, end='\t')
             print('知网相似度结果为：', how, end='\t')
-            return lin * 0.7 + how * 0.3
+            return lin * 1 + how * 0  # 这里可以调节两者的权重，以获取更优结果！！
 
         if w1 in cls.A and w2 in cls.A:  # 两个词都只被知网收录。
             return how
