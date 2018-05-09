@@ -25,7 +25,7 @@
 |田久乐 赵蔚(2010)	|同义词词林	|77456	|0.53|
 |吕立辉等(2013)	|同义词词林	|77456|	0.74|
 |陈宏朝等(2016-9)	|同义词词林|77456|	0.856|
-|yaleimeng（2018）|改进的词林|77490	|0.917|
+|yaleimeng(2018)|改进的词林|77490	|0.917|
 
 |相似度方法|所用语义词典|词汇量|皮尔逊系数|
 |------------|---------|:-:|:-:|
@@ -44,4 +44,4 @@
 如需了解预训练词向量计算的中文词语相关度，可参见：[中文近义词工具包Synonyms](https://github.com/huyingxi/Synonyms)
 
 **原创不易，欢迎打赏、捐赠：**</br>
-<img src="https://github.com/yaleimeng/Final_word_Similarity/blob/master/Pics/payQR.png" title="Logo" width="600" /> 
+<img src="https://github.com/yaleimeng/Final_word_Similarity/blob/master/Pics/payQR.png" title="Logo" width="500" /> 

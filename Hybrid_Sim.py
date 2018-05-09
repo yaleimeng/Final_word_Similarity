@@ -6,7 +6,7 @@
 @DateTime: Created on 2018/1/25, at 上午 08:59 by PyCharm '''
 
 from hownet.howNet import How_Similarity
-from cilin.V3.new_CiLin import CilinSimilarity
+from cilin.V3.ciLin import CilinSimilarity
 
 
 class HybridSim():
