@@ -7,6 +7,7 @@
 
 from hownet.howNet import How_Similarity
 from cilin.V3.ciLin import CilinSimilarity
+from fanyi.anto_Judger import AntonymJudger
 
 
 class HybridSim():
@@ -18,9 +19,10 @@ class HybridSim():
     Common = ci_lin.vocab & how_net.vocab
     A = how_net.vocab - ci_lin.vocab
     B = ci_lin.vocab - how_net.vocab
+    anto = AntonymJudger()
 
     @classmethod
-    def get_Final_sim(cls, w1, w2):
+    def get_Middle_sim(cls, w1, w2):
         lin = cls.ci_lin.sim2018(w1, w2) if w1 in cls.ci_lin.vocab and w2 in cls.ci_lin.vocab else 0
         how = cls.how_net.calc(w1, w2) if w1 in cls.how_net.vocab and w2 in cls.how_net.vocab else 0
 
@@ -91,3 +93,10 @@ class HybridSim():
 
         print('对不起，词语可能未收录，无法计算相似度！')
         return -1
+    
+    @classmethod
+    def get_Final_sim(cls, w1, w2):
+        if cls.anto.is_anti_pair(w1, w2):
+            return 1 - cls.get_Middle_sim(w1, w2)
+        else:
+            return cls.get_Middle_sim(w1, w2)
